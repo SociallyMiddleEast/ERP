@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tideline — Desk</title>
+  <title>Tideline — Home</title>
   <script>
     // Apply saved theme before paint (no flash)
     try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -26,33 +26,16 @@
   <!-- ============ TOP BAR ============ -->
   <header class="topbar" id="topbar">
     <nav class="nav" aria-label="Main">
-      <a class="brand" href="#desk" data-page="desk">
+      <a class="brand" href="#home" data-section="home">
         <span class="brand-mark">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><path d="M10 20v-5h4v5"/></svg>
         </span>
         <span class="brand-name">Tideline</span>
       </a>
 
+      <!-- Tabs are generated from config.js -->
       <div class="tabs" id="tabs">
         <span class="pill" id="pill" aria-hidden="true"></span>
-        <a class="tab" href="#desk" data-page="desk">Desk</a>
-        <a class="tab" href="#applications" data-page="applications">Applications <span class="count">14</span></a>
-        <a class="tab" href="#renewals" data-page="renewals">Renewals <span class="count">1</span></a>
-        <a class="tab" href="#bookroll" data-page="bookroll">Bookroll</a>
-        <a class="tab" href="#policies" data-page="policies">Policies</a>
-        <a class="tab" href="#agency-bills" data-page="agency-bills">Agency bills</a>
-        <div class="menu">
-          <button class="tab more-btn" id="more-btn" data-toggle aria-haspopup="true" aria-expanded="false">
-            <span class="more-label">More</span>
-            <svg class="chev" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <div class="dropdown" role="menu">
-            <a href="#clients" data-page="clients" class="dd-item">Clients</a>
-            <a href="#carriers" data-page="carriers" class="dd-item">Carriers</a>
-            <a href="#reports" data-page="reports" class="dd-item">Reports</a>
-            <a href="#settings" data-page="settings" class="dd-item">Settings</a>
-          </div>
-        </div>
       </div>
 
       <div class="actions">
@@ -77,9 +60,9 @@
           </button>
           <div class="dropdown dropdown-right notif" role="menu">
             <div class="dd-head">Notifications <button class="link-btn" id="mark-read">Mark all read</button></div>
-            <a class="notif-item unread" href="#"><span class="n-dot"></span><span><b>Pell Harbor Ferry</b> answered 2 questions<small>5 min ago</small></span></a>
-            <a class="notif-item unread" href="#"><span class="n-dot"></span><span>Offer for <b>Bluefin Row Marina</b> ends in 15 days<small>1 h ago</small></span></a>
-            <a class="notif-item unread" href="#"><span class="n-dot"></span><span>Renewal not started: <b>Saltgate Yachts</b><small>Yesterday</small></span></a>
+            <a class="notif-item unread" href="#sales/opportunities"><span class="n-dot"></span><span>New opportunity assigned to you in <b>Sales</b><small>5 min ago</small></span></a>
+            <a class="notif-item unread" href="#tendering/open-opportunities"><span class="n-dot"></span><span>A tender in <b>Tendering</b> is due this week<small>1 h ago</small></span></a>
+            <a class="notif-item unread" href="#engineering/electrical"><span class="n-dot"></span><span><b>Electrical Engineering</b> updated a cost estimate<small>Yesterday</small></span></a>
           </div>
         </div>
 
@@ -151,6 +134,7 @@
     </div>
   </div>
 
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
