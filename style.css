@@ -255,6 +255,23 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .dd-user { padding: 10px 12px 12px; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
 .dd-user b, .dd-user small { display: block; }
 .dd-user small { color: var(--muted); font-size: 12px; margin-top: 2px; }
+/* Grouped "More" menu */
+.dropdown.mega { width: 240px; padding: 8px; }
+.dd-group + .dd-group { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border); }
+.dd-group-label { padding: 6px 10px 4px; font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+.dropdown.mega .dd-item { display: flex; align-items: center; gap: 10px; }
+.dd-icon {
+  width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+  display: grid; place-items: center;
+  background: var(--hover); color: var(--muted);
+  transition: background .2s, color .2s, transform .3s cubic-bezier(.3, 1.6, .5, 1);
+}
+.dd-item:hover .dd-icon { color: var(--accent); transform: scale(1.08); }
+.dd-item.active .dd-icon { background: var(--accent); color: var(--accent-ink); }
+.menu.open .dropdown.mega .dd-item { animation: sub-in .4s cubic-bezier(.2, .8, .2, 1) both; }
+.menu.open .dropdown.mega .dd-group:nth-child(2) .dd-item { animation-delay: .05s; }
+.menu.open .dropdown.mega .dd-group:nth-child(3) .dd-item { animation-delay: .1s; }
+
 .notif { width: 320px; }
 .dd-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px 10px; font-weight: 600; font-size: 14px; }
 .link-btn { font-size: 12px; color: var(--accent); }
@@ -297,6 +314,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .subtab:hover { color: var(--text); }
 .subtab.active { color: var(--text); font-weight: 500; }
+.subtab.action { color: var(--accent); font-weight: 500; }
+.subtab.action:hover { filter: brightness(1.15); }
+.subtab.action svg { transition: transform .4s cubic-bezier(.3, 1.6, .5, 1); }
+.subtab.action:hover svg { transform: rotate(90deg); }
+.crumb-link { transition: color .2s; }
+.crumb-link:hover { color: var(--text); }
+.crumbs .enter { display: inline-block; }
 .subtab .count { font-size: 10px; font-weight: 600; padding: 2px 5px; border-radius: 5px; background: var(--hover); color: var(--text); }
 @keyframes sub-in { from { opacity: 0; transform: translateX(-10px); filter: blur(4px); } }
 .subtabs.leaving .subtab { animation: sub-out .18s ease forwards; }
@@ -374,7 +398,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .mobile-menu.open a { opacity: 1; transform: none; filter: none; }
 .mobile-menu a:hover { background: var(--hover); color: var(--text); }
 .mobile-menu a.active { background: var(--accent); color: var(--accent-ink); }
-.mobile-menu .count { font-size: 11px; padding: 1px 7px; border-radius: 6px; background: var(--hover); }
+.mobile-menu a { justify-content: flex-start; gap: 12px; }
+.m-icon { display: grid; place-items: center; opacity: .85; }
+.m-group {
+  padding: 14px 12px 4px; font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint);
+  opacity: 0; transition: opacity .35s;
+}
+.mobile-menu.open .m-group { opacity: 1; }
+#palette-list li { display: flex; align-items: center; gap: 10px; }
 
 @media (max-width: 1100px) {
   .tabs { display: none; }
@@ -392,7 +423,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .nav { gap: 10px; }
   .subbar { padding: 0 12px; }
   .crumbs li:not(.current), .crumbs .sep { display: none; }
-  .notif { width: min(320px, calc(100vw - 32px)); right: -88px; }
+  .subbar.has-tabs .crumbs, .subbar.has-tabs .sub-divider, .subbar.has-tabs .status { display: none; }  .notif { width: min(320px, calc(100vw - 32px)); right: -88px; }
   .ghost { height: 90px; }
 }
 
